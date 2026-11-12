@@ -9,9 +9,12 @@ app.get("/total", (req, res) => {
     res.json({ total: total(p, c, 0) });
 });
 
-// Reto 3: Iniciar el servidor para ZAP DAST
-app.listen(3000, () => {
-    console.log("App iniciada en el puerto 3000");
-});
+// EL AJUSTE PARA EL RETO 3: Solo levanta el servidor si se ejecuta directamente,
+// evitando que el test (npm test) se quede colgado eternamente.
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log("App iniciada en el puerto 3000");
+    });
+}
 
 module.exports = { app, total };
