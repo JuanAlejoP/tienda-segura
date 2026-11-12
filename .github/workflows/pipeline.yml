@@ -31,6 +31,6 @@ jobs:
       # --- RETO EXTRA 3: OWASP ZAP (Prueba en ejecución) ---
       - run: node app.js &
       - name: OWASP ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.12.0
+        uses: zaproxy/action-baseline@v0.15.0 # Actualizado de 12 a 15
         with:
           target: 'http://localhost:3000'
